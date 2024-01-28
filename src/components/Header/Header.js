@@ -69,7 +69,10 @@ function Header(props) {
           window.addEventListener("scroll", changeCss , false);
 
           return () => {
-            window.removeEventListener('scroll');
+            if (window && window.removeEventListener) {
+                window.removeEventListener('scroll', changeCss);
+            }
+            
           }
     })
 
